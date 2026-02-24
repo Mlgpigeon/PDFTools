@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Entornos virtuales
+venv/
+env/
+.venv/
+
+# Distribución / empaquetado
+dist/
+build/
+*.egg-info/
+*.spec
+
+# Config local
+.pdf_toolkit_config.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini

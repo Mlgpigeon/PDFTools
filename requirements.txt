@@ -1,0 +1,8 @@
+# === Obligatorias ===
+pypdf[crypto]
+Pillow
+
+# === Opcionales ===
+tkinterdnd2          # Drag & drop nativo en Tkinter
+docx2pdf             # Conversión DOCX→PDF vía Microsoft Word
+reportlab            # Marcas de agua con texto
