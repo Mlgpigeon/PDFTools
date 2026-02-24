@@ -17,16 +17,26 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo [1/3] Actualizando pip...
-python -m pip install --upgrade pip
+:: Crear entorno virtual si no existe
+if not exist "venv" (
+    echo [1/4] Creando entorno virtual...
+    python -m venv venv
+) else (
+    echo [1/4] Entorno virtual ya existe, reutilizando...
+)
+
+:: Activar entorno virtual
+echo [2/4] Activando entorno virtual...
+call venv\Scripts\activate.bat
 
 echo.
-echo [2/3] Instalando dependencias obligatorias...
-python -m pip install pypdf[crypto] Pillow
+echo [3/4] Instalando dependencias obligatorias...
+pip install --upgrade pip
+pip install pypdf[crypto] Pillow
 
 echo.
-echo [3/3] Instalando dependencias opcionales...
-python -m pip install tkinterdnd2 docx2pdf reportlab
+echo [4/4] Instalando dependencias opcionales...
+pip install tkinterdnd2 docx2pdf reportlab
 
 echo.
 echo ============================================
@@ -39,6 +49,11 @@ echo     (necesario para comprimir PDFs con maxima calidad)
 echo   - LibreOffice: https://www.libreoffice.org/download/
 echo     (alternativa a Word para convertir DOCX a PDF)
 echo.
-echo Para ejecutar: python pdf_toolkit.py
+echo Para ejecutar:
+echo   venv\Scripts\python pdf_toolkit.py
+echo.
+echo O activa el venv primero:
+echo   venv\Scripts\activate
+echo   python pdf_toolkit.py
 echo.
 pause
